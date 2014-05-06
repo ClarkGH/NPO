@@ -1,17 +1,9 @@
-<section class="home">
-    <div class="venn">
-        <p>About</p>
-    </div>
-    <div class="venn">
-        <p>Jenn</p>
-    </div>
-    <div class="venn">
-        <p>Deena</p>
-    </div>
-    <div class="venn">
-        <p>Rachel</p>
-    </div>
-    <div class="venn">
-        <p>Contact</p>
-    </div>
+<section class="list">
+    <ul>
+    <% @posts.each do |post| %>
+    <li><%= post.title %></li>
+    <li><%= post.author %></li>
+    <li><%= post.content %></li>
+    <% end %>
+    </ul>
 </section>
