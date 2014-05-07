@@ -33,12 +33,12 @@ configure do
     set :session_secret, ENV['SESSION_SECRET'] || 'this is a secret shhhhh'
 
     # Set the views to
-    set :views, File.join(Sinatra::Application.root, "app", "views")
+    set :views, File.join(Sinatra::Application.root, "views")
 end
 
 # Set up the controllers and helpers
-Dir[APP_ROOT.join('app', 'controllers', '*.rb')].each { |file| require file }
-Dir[APP_ROOT.join('app', 'helpers', '*.rb')].each { |file| require file }
+Dir[APP_ROOT.join('routes', '*.rb')].each { |file| require file }
+Dir[APP_ROOT.join('helpers', '*.rb')].each { |file| require file }
 
 # Set up the database and models
 require APP_ROOT.join('config', 'database')
