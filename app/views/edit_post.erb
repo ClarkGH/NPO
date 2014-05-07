@@ -1,0 +1,17 @@
+<section class="edit-form">
+    <header>
+        <h1>EDIT</h1>
+    </header>
+    <form method="post" action="/edit">
+        <input type="hidden" name="_method" value="put">
+        <%= erb "partials/_post_inputs".to_sym %>
+        <input type="submit">
+    </form>
+</section>
+
+
+<ul>
+    <li><%= @post.title %></li>
+    <li><%= @post.author %></li>
+    <li><%= @post.content %></li>
+</ul>

@@ -10,7 +10,6 @@ describe Post do
                 title: "test",
                 author: "test", 
                 content: "test"
-            )}.to change{Post.count}.by(1)
+            )}.to change{ Post.count }.by(1)
     end
-
 end
