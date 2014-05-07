@@ -11,4 +11,17 @@ post '/create' do
     redirect '/'
 end
 
+get '/edit' do
+    @posts = Post.all
+    erb :edit
+end
+
+get '/edit/:id' do
+    @post = Post.find(params[:id])
+    erb :edit_post
+end
+
+put '/edit/:id' do
+    redirect '/'
+end
       
