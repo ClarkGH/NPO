@@ -2,10 +2,9 @@
     <header>
         <h1>EDIT</h1>
     </header>
-    <form method="post" action="/edit">
+    <form method="post" action="/edit/<%= @post.id %>">
         <input type="hidden" name="_method" value="put">
         <%= erb "partials/_post_inputs".to_sym %>
-        <input type="submit">
     </form>
 </section>
 

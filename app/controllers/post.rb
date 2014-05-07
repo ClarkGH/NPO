@@ -17,11 +17,16 @@ get '/edit' do
 end
 
 get '/edit/:id' do
-    @post = Post.find(params[:id])
+    @post = Post.find( params[:id] )
     erb :edit_post
 end
 
 put '/edit/:id' do
+    post = Post.find( params[:id] )
+    post.title = params[:title]
+    post.author = params[:author]
+    post.content = params[:content]
+    post.save
     redirect '/'
 end
       

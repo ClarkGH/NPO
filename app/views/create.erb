@@ -3,9 +3,6 @@
         <h1>CREATE</h1>
     </header>
     <form method="post" action="/create">
-        <input type="text" name="title" placeholder="title">
-        <input type="text" name="author" placeholder="author">
-        <input type="text" name="content" placeholder="content">
-        <input type="submit" class="btn submit">
+        <%= erb "partials/_post_inputs".to_sym %>
     </form>
 </section>
