@@ -13,7 +13,8 @@ end
 
 get '/edit' do
     @posts = Post.all
-    erb :edit
+    @action = 'edit'
+    erb :list
 end
 
 get '/edit/:id' do
@@ -29,4 +30,20 @@ put '/edit/:id' do
     post.save
     redirect '/'
 end
-      
+
+get '/delete' do
+    @posts = Post.all
+    @action = 'delete'
+    erb :list
+end
+
+get '/delete/:id' do
+    @post = Post.find( params[:id] )
+    erb :delete_post
+end
+
+delete '/delete/:id' do
+    post = Post.find( params[:id] )
+    post.destroy
+    redirect '/' 
+end

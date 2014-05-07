@@ -1,7 +1,7 @@
 <section class="list">
     <ul>
     <% @posts.each do |post| %>
-    <li><a href="edit/<%= post.id %>"><%= post.title %></a></li>
+    <li><a href="<%= @action %>/<%= post.id %>"><%= post.title %></a></li>
     <% end %>
     </ul>
 </section>
