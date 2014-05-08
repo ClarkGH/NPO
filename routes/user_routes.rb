@@ -3,7 +3,13 @@ get '/login' do
 end
 
 post '/login' do
-    #set session key
+    @user = User.find_by username: params[:username]
+    login(@user)
+    redirect '/'
+end
+
+post '/logout' do
+    session.clear
     redirect '/'
 end
 
