@@ -3,9 +3,13 @@ get '/login' do
 end
 
 post '/login' do
-    User.create(
-        username: params[:username],
-        password_hash: params[:password]
-        )
+    #set session key
     redirect '/'
 end
+
+# post '/sign-up' do
+    # User.create(
+    #     username: params[:username],
+    #     password_hash: params[:password]
+    #     )
+# end

@@ -1,5 +1,5 @@
 get '/create' do
-    erb :create
+    erb :create_post
 end
 
 post '/create' do
@@ -14,7 +14,7 @@ end
 get '/edit' do
     @posts = Post.all
     @action = 'edit'
-    erb :list
+    erb :show_posts
 end
 
 get '/edit/:id' do
@@ -34,7 +34,7 @@ end
 get '/delete' do
     @posts = Post.all
     @action = 'delete'
-    erb :list
+    erb :show_posts
 end
 
 get '/delete/:id' do
