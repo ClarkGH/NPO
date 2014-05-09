@@ -9,7 +9,7 @@ post '/login' do
 end
 
 post '/logout' do
-    session.clear
+    logout
     redirect '/'
 end
 
