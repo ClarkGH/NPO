@@ -12,5 +12,6 @@ def current_user
 end
 
 def logout
+    @current_user = nil
     session.clear
 end
