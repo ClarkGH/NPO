@@ -1,0 +1,44 @@
+/* LAYOUT */
+* {
+    text-align: center;
+    font-family: arial;
+    font-size: 12px;
+}
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+li {
+    list-style: none;
+}
+
+input, textarea {
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}
+
+/* POSTING */
+.create-post {
+    margin: auto;
+    width: 40%;
+    padding: 10px;
+    border: 1px solid black;
+}
+
+.post-form textarea {
+    margin: auto;
+    display: block;
+    width: 100%;
+}
+
+.post-form .submit {
+    margin: auto;
+    display: block;
+}
+
