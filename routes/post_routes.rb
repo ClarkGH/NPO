@@ -53,16 +53,19 @@ end
 
 get '/deena' do
     @posts = Post.where( author: 'deena' )
-    erb :show_posts
+    content_type :json
+    @posts.to_json
 end
 
 get '/jennifer' do
     @posts = Post.where( author: 'jennifer' )
-    erb :show_posts
+    content_type :json
+    @posts.to_json
 end
 
 get '/rachel' do
     @posts = Post.where( author: 'rachel' )
-    erb :show_posts
+    content_type :json
+    @posts.to_json
 end
 

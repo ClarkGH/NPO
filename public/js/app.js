@@ -10,42 +10,26 @@ function Blog( postView ) {
 
 Blog.prototype = {
     bindEventListeners: function(){
-        $('.deena').on( 'click', this.getDeenaPosts.bind( this ) )
-        $('.jenn').on( 'click', this.getJennPosts.bind( this ) )
-        $('.rachel').on( 'click', this.getRachelPosts.bind( this ) )
+        $('.deena, .jennifer, .rachel').on( 'click', this.getAuthorPosts.bind( this ) )
    },
 
-    getDeenaPosts: function(){
+    getAuthorPosts: function(){
         event.preventDefault()
         var ajaxRequest = $.ajax({
             url: event.target.href,
             type: 'GET'
         })
 
-        //ajaxRequest.done( console.log( data ) )
-    },
-
-    getJennPosts: function(){},
-
-    getRachelPosts: function(){}
+        ajaxRequest.done( this.postView.displayAuthorPosts.bind( this )  )
+    }
 }
 
 function PostView(){
 }
 
 PostView.prototype = {
-    displayDeenaPosts: function(){
+    displayAuthorPosts: function( data ){
         event.preventDefault()
-        console.log('deena')
-    },
-
-    displayJennPosts: function(){
-        event.preventDefault()
-        console.log('jenn')
-    },
-
-    displayRachelPosts: function(){
-        event.preventDefault()
-        console.log('rachel')
+        console.log(data)
     }
 }
