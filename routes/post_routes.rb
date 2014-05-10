@@ -1,4 +1,3 @@
-
 get '/create' do
     erb :create_post
 end
@@ -51,3 +50,19 @@ delete '/delete/:id' do
     post.destroy
     redirect '/'
 end
+
+get '/deena' do
+    @posts = Post.where( author: 'deena' )
+    erb :show_posts
+end
+
+get '/jennifer' do
+    @posts = Post.where( author: 'jennifer' )
+    erb :show_posts
+end
+
+get '/rachel' do
+    @posts = Post.where( author: 'rachel' )
+    erb :show_posts
+end
+
