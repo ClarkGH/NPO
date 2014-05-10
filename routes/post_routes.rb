@@ -30,9 +30,9 @@ put '/edit/:id' do
         author: params[:author],
         content: params[:content]
     )
-    content_type :json
-    post.to_json
-    #redirect '/'
+    #content_type :json
+    #post.to_json
+    redirect '/'
 end
 
 get '/delete' do
