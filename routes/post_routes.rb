@@ -5,7 +5,7 @@ end
 post '/create' do
     Post.create(
         title: params[:title],
-        author: params[:author], 
+        author: params[:author],
         content: params[:content]
     )
     redirect '/'
@@ -24,11 +24,14 @@ end
 
 put '/edit/:id' do
     post = Post.find( params[:id] )
-    post.title = params[:title]
-    post.author = params[:author]
-    post.content = params[:content]
-    post.save
-    redirect '/'
+    post.update_attributes(
+        title: params[:title],
+        author: params[:author],
+        content: params[:content]
+    )
+    content_type :json
+    post.to_json
+    #redirect '/'
 end
 
 get '/delete' do
@@ -45,5 +48,5 @@ end
 delete '/delete/:id' do
     post = Post.find( params[:id] )
     post.destroy
-    redirect '/' 
+    redirect '/'
 end
