@@ -1,3 +1,4 @@
+
 get '/create' do
     erb :create_post
 end

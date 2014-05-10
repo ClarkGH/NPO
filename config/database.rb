@@ -23,6 +23,8 @@ end
 # We need to respect that if we want our Sinatra apps to run on Heroku without modification
 db = URI.parse(ENV['DATABASE_URL'] || "postgres://localhost/#{APP_NAME}_#{Sinatra::Application.environment}")
 
+# Uncomment below to access test DB in rake console
+#db = URI.parse( "postgres://localhost/#{APP_NAME}_test" )
 DB_NAME = db.path[1..-1]
 
 # Note:

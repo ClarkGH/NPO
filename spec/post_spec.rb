@@ -19,7 +19,7 @@ describe Post do
         expect{ post '/create', @params }.to change{ Post.count }.by(1)
     end
 
-    xit "should be able to edit a post" do
+    it "should be able to edit a post" do
         edit_params = {
             id: @post.id,
             title: "edit",
@@ -27,8 +27,7 @@ describe Post do
             content: "params"
         }
         put "/edit/#{ @post.id }", edit_params
-        @post.update_attributes( edit_params )
-        expected_output = @post.to_json
+        expected_output = Post.find( @post.id ).to_json
 
         expect( last_response.body ).to eq( expected_output )
     end
