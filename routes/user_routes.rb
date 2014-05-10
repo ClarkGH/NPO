@@ -8,7 +8,7 @@ post '/login' do
     redirect '/'
 end
 
-post '/logout' do
+get '/logout' do
     logout
     redirect '/'
 end
