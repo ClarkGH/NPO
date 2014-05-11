@@ -30,6 +30,14 @@ function PostView(){
 PostView.prototype = {
     displayAuthorPosts: function( data ){
         event.preventDefault()
-        console.log(data)
+        this.postView.getPostTemplate( data )
+    },
+
+    getPostTemplate: function( data ){
+        $.get( 'templates/post_template.mst', function( template ){
+            console.log( data )
+            var rendered = Mustache.render( template, data )
+            console.log ( rendered )
+        })
     }
 }
