@@ -3,7 +3,7 @@
     <h2 class="post-title">{{ author }}</h2>
 </header>
 
-<div>
+<div class="body">
 {{ content }}
 </div>
 

@@ -35,9 +35,8 @@ PostView.prototype = {
 
     getPostTemplate: function( data ){
         $.get( 'templates/post_template.mst', function( template ){
-            console.log( data )
-            var rendered = Mustache.render( template, data )
-            console.log ( rendered )
+            var rendered = Mustache.render( template, data[0] )
+            $('.container').html( rendered )
         })
     }
 }
