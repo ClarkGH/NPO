@@ -19,8 +19,16 @@ Blog.prototype = {
             url: event.target.href,
             type: 'GET'
         })
+        ajaxRequest.done( this.getPostTemplate.bind( this )  )
+    },
 
-        ajaxRequest.done( this.postView.displayAuthorPosts.bind( this )  )
+    getPostTemplate: function( data ){
+        var self = this
+        var ajaxRequest = $.ajax({
+            url: 'templates/post_template.mst',
+            type: 'GET'
+        })
+        ajaxRequest.done( function( template ){ self.postView.displayPost( template, data ) } )
     }
 }
 
@@ -28,15 +36,8 @@ function PostView(){
 }
 
 PostView.prototype = {
-    displayAuthorPosts: function( data ){
-        event.preventDefault()
-        this.postView.getPostTemplate( data )
-    },
-
-    getPostTemplate: function( data ){
-        $.get( 'templates/post_template.mst', function( template ){
-            var rendered = Mustache.render( template, data[0] )
-            $('.container').html( rendered )
-        })
+    displayPost: function( template, data ){
+        var rendered = Mustache.render( template, data[0] )
+        $('.container').html( rendered )
     }
 }
