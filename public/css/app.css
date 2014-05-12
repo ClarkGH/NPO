@@ -1,16 +1,21 @@
 /* LAYOUT */
 * {
-    text-align: center;
     font-family: arial;
     font-size: 12px;
 }
 
 a {
     text-decoration: none;
+    color: #2980b9;
 }
 
 a:hover {
     text-decoration: underline;
+    color: #2980b9;
+}
+
+a:visited {
+    color: #2980b9;
 }
 
 li {
@@ -24,21 +29,30 @@ input, textarea {
 }
 
 /* POSTING */
-.create-post {
+.form-section {
+    text-align: center;
     margin: auto;
     width: 40%;
     padding: 10px;
     border: 1px solid black;
 }
 
-.post-form textarea {
+.post-form textarea, input, select {
     margin: auto;
     display: block;
     width: 100%;
 }
 
-.post-form .submit {
-    margin: auto;
-    display: block;
+.submit {
+    height: 50px;
+    background-color: #3699db;
+    color: #fff;
+    border: none;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
+.submit:hover {
+    cursor: pointer;
+    background-color: #2980b9;
+}

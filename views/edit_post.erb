@@ -1,16 +1,17 @@
-<section class="edit-post">
+<section class="form-section">
     <header>
         <h1>EDIT</h1>
     </header>
-    <form method="post" action="/edit/<%= @post.id %>">
+    <form method="post" class="post-form" action="/edit/<%= @post.id %>">
         <input type="hidden" name="_method" value="put">
-        <%= erb "partials/_post_inputs".to_sym %>
+        <input type="text" name="title" value="<%= @post.title %>">
+        <select name="author">
+            <option value="<%= @post.author %>"><%= @post.author %></option>
+            <option value="deena">Deena</option>
+            <option value="jennifer">Jennifer</option>
+            <option value="rachel">Rachel</option>
+        </select>
+        <textarea rows="20" name="content" placeholder="content"><%= @post.content %></textarea>
+        <input type="submit" class="btn submit">
     </form>
 </section>
-
-
-<ul>
-    <li><%= @post.title %></li>
-    <li><%= @post.author %></li>
-    <li><%= @post.content %></li>
-</ul>

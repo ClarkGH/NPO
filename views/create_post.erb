@@ -1,8 +1,16 @@
-<section class="create-post">
+<section class="form-section">
     <header>
         <h1>CREATE</h1>
     </header>
     <form method="post" action="/create" class="post-form">
-        <%= erb "partials/_post_inputs".to_sym %>
+        <input type="text" name="title" placeholder="title">
+        <select name="author">
+            <option value="Author">Author</option>
+            <option value="deena">Deena</option>
+            <option value="jennifer">Jennifer</option>
+            <option value="rachel">Rachel</option>
+        </select>
+        <textarea rows="20" name="content" placeholder="content"></textarea>
+        <input type="submit" class="btn submit">
     </form>
 </section>

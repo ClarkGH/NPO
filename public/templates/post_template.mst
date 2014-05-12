@@ -1,6 +1,5 @@
 <header>
     <h1 class="post-title">{{ title }}</h1>
-    <h2 class="post-title">{{ author }}</h2>
 </header>
 
 <div class="body">
