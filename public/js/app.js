@@ -22,13 +22,15 @@ Blog.prototype = {
         ajaxRequest.done( this.getPostTemplate.bind( this )  )
     },
 
-    getPostTemplate: function( data ){
+    getPostTemplate: function( postData ){
         var self = this
         var ajaxRequest = $.ajax({
             url: 'templates/post_template.mst',
             type: 'GET'
         })
-        ajaxRequest.done( function( template ){ self.postView.displayPost( template, data ) } )
+        ajaxRequest.done( function( template ){
+            self.postView.displayPost( template, postData )
+        })
     }
 }
 
@@ -36,8 +38,9 @@ function PostView(){
 }
 
 PostView.prototype = {
-    displayPost: function( template, data ){
-        var rendered = Mustache.render( template, data[0] )
+    displayPost: function( template, postData ){
+        var mustacheData = { data: postData }
+        var rendered = Mustache.render( template, mustacheData )
         $('.container').html( rendered )
     }
 }
