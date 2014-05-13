@@ -25,7 +25,7 @@ Blog.prototype = {
     getPostTemplate: function( postData ){
         var self = this
         var ajaxRequest = $.ajax({
-            url: 'templates/post_template.mst',
+            url: 'templates/post_template.mst?v.0',
             type: 'GET'
         })
         ajaxRequest.done( function( template ){
