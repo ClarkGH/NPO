@@ -20,18 +20,7 @@ Blog.prototype = {
             url: event.target.href,
             type: 'GET'
         })
-        ajaxRequest.done( this.getPostTemplate.bind( this )  )
-    },
-
-    getPostTemplate: function( postData ){
-        var self = this
-        var ajaxRequest = $.ajax({
-            url: 'templates/post_template.mst?v.0',
-            type: 'GET'
-        })
-        ajaxRequest.done( function( template ){
-            self.postView.displayPost( template, postData )
-        })
+        ajaxRequest.done( this.postView.displayPost.bind( this.postView )  )
     },
 
     getPartial: function(){
@@ -49,8 +38,13 @@ function PostView(){
 }
 
 PostView.prototype = {
-    displayPost: function( template, postData ){
+    getPostTemplate: function(){
+        return $('#post-template').html()
+    },
+
+    displayPost: function( postData ){
         var mustacheData = { data: postData }
+        var template = this.getPostTemplate()
         var rendered = Mustache.render( template, mustacheData )
         $('.container').html( rendered )
     },
