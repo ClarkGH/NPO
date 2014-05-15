@@ -60,11 +60,11 @@ PostView.prototype = {
     },
 
     displayPost: function( postData ){
-        console.log(postData)
         var mustacheData = { data: postData }
         var template = this.getPostTemplate()
         var rendered = Mustache.render( template, mustacheData )
         $('.content').html( rendered )
+        this.parsePosts()
     },
 
     displayPartial: function( partial ){
@@ -74,10 +74,28 @@ PostView.prototype = {
             buttons: ['bold', 'italic', 'quote'],
             diffLeft: 25,
             diffTop: 10,
-            firstHeader: 'h1',
-            secondHeader: 'h2',
             delay: 1000,
             targetBlank: true
         });
+    },
+
+    parsePosts: function(){
+        var posts = $('.body')
+        for( var i = 0, len = posts.length; i < len; i++ ){
+            var post = posts[ i ]
+            var elements = $.parseHTML( post.innerText )
+            this.emptyPost( post )
+            this.appendElements( elements, post )
+        }
+    },
+
+    appendElements: function( elements, post ){
+        for( var i = 0, len = elements.length; i < len; i++ ){
+            $( post ).append( elements[ i ] )
+        }
+    },
+
+    emptyPost: function( post ){
+        $( post ).empty()
     }
 }
