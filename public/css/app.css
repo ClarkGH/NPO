@@ -1,4 +1,4 @@
-/* LAYOUT */
+/* ALL */
 * {
     font-family: arial;
     font-size: 12px;
@@ -22,17 +22,49 @@ li {
     list-style: none;
 }
 
-input, textarea {
+input {
     box-sizing: border-box;
     -webkit-box-sizing:border-box;
     -moz-box-sizing: border-box;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* LAYOUT */
+#container {
+    margin: auto;
+    width: 50%;
+    min-width: 400px;
+}
+
+.index {
+    display: inline-block;
+    background-color:  #ccc;
+    width: 100%;
+    text-align: center;
+}
+
+.authors {
+    text-align: center;
+    background-color: #ccc;
+}
+
+.content {
+    width: 100%;
+}
+
+.editable {
+    width: 100%;
+    height: 350px;
+    text-align: left;
 }
 
 /* POSTING */
 .form-section {
     text-align: center;
     margin: auto;
-    width: 40%;
     padding: 10px;
     border: 1px solid black;
 }
@@ -43,6 +75,18 @@ input, textarea {
     width: 100%;
 }
 
+.post header {
+    text-align: center;
+    width: inherit;
+    background-color: #333;
+    color: #fff;
+}
+
+.post .body {
+    width: inherit;
+}
+
+/* BUTTONS */
 .submit {
     height: 50px;
     background-color: #3699db;
