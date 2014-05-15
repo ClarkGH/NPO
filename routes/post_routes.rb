@@ -1,25 +1,29 @@
 get '/create' do
-    erb :create_post
+    erb :create_post, :layout => false
 end
 
 post '/create' do
-    Post.create(
+    p params
+    post = Post.create(
         title: params[:title],
         author: params[:author],
         content: params[:content]
     )
-    redirect '/'
+    content_type :json
+    post.to_json
 end
 
 get '/edit' do
     @posts = Post.all
     @action = 'edit'
-    erb :show_posts
+    erb :show_posts, :layout => false
+
 end
 
 get '/edit/:id' do
     @post = Post.find( params[:id] )
-    erb :edit_post
+    erb :edit_post, :layout => false
+
 end
 
 put '/edit/:id' do
@@ -37,12 +41,14 @@ end
 get '/delete' do
     @posts = Post.all
     @action = 'delete'
-    erb :show_posts
+    erb :show_posts, :layout => false
+
 end
 
 get '/delete/:id' do
     @post = Post.find( params[:id] )
-    erb :delete_post
+    erb :delete_post, :layout => false
+
 end
 
 delete '/delete/:id' do

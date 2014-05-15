@@ -12,6 +12,7 @@ Blog.prototype = {
     bindEventListeners: function(){
         $('.deena, .jennifer, .rachel').on( 'click', this.getAuthorPosts.bind( this ) )
         $('a.login, a.edit, a.delete, a.create').on( 'click', this.getPartial.bind( this ) )
+        $('#container').on('click', '.submit', this.submitPost.bind( this ) )
    },
 
     getAuthorPosts: function(){
@@ -32,6 +33,22 @@ Blog.prototype = {
 
         ajaxRequest.done( this.postView.displayPartial )
     },
+
+    transferTextToInputField: function(){
+        var mediumContent = $('.editable').html()
+        $('textarea[name="content"]').text( mediumContent )
+    },
+
+    submitPost: function(){
+        event.preventDefault()
+        this.transferTextToInputField()
+        var ajaxRequest = $.ajax({
+            url: event.target.form.action,
+            type: 'POST',
+            data: $('.post-form').serialize()
+        })
+        ajaxRequest.done( this.postView.displayPost.bind( this.postView) )
+    }
 }
 
 function PostView(){
