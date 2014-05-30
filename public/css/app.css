@@ -39,6 +39,10 @@ input {
     min-width: 400px;
 }
 
+.interface {
+    position: relative;
+}
+
 .index {
     display: inline-block;
     background-color:  #ccc;
@@ -53,6 +57,7 @@ input {
 
 .content {
     width: 100%;
+    background: #fff;
 }
 
 .editable {
@@ -99,4 +104,13 @@ input {
 .submit:hover {
     cursor: pointer;
     background-color: #2980b9;
+}
+
+/* NAV */
+.nav {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: #fff;
+    z-index: 1;
 }
