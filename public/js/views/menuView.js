@@ -68,7 +68,7 @@ define(function(require, exports, module) {
 
     MenuView.DEFAULT_OPTIONS = {
         stripData: {},
-        angle: -0.2,
+        angle: 0,
         stripWidth: 320,
         stripHeight: 54,
         topOffset: 37,

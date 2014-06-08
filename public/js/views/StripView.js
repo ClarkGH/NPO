@@ -19,7 +19,7 @@ define(function(require, exports, module) {
     StripView.DEFAULT_OPTIONS = {
         width: 320,
         height: 55,
-        angle: -0.2,
+        angle: 0,
         iconSize: 32,
         iconUrl: 'img/strip-icons/famous.png',
         title: 'Famo.us',
@@ -60,7 +60,7 @@ define(function(require, exports, module) {
 
         var iconModifier = new StateModifier({
             // places the icon in the proper location
-            transform: Transform.translate(24, 2, 0)
+            transform: Transform.translate(24, 10, 0)
         });
 
         this.add(iconModifier).add(iconSurface);
@@ -68,11 +68,12 @@ define(function(require, exports, module) {
 
     function _createTitle() {
         var anchor = "<a href= '" + this.options.link + "'>" + this.options.title +"</a>";
-        console.log(this)
+
         var titleSurface = new Surface({
             size: [true, true],
             properties: {
                 color: 'white',
+                fontFamily: 'AvenirNextCondensed-DemiBold',
                 fontSize: this.options.fontSize + 'px',
                 textTransform: 'uppercase'
             }
@@ -81,7 +82,7 @@ define(function(require, exports, module) {
         titleSurface.setContent(anchor);
 
         var titleModifier = new StateModifier({
-            transform: Transform.thenMove(Transform.rotateZ(this.options.angle), [75, -5, 0])
+            transform: Transform.thenMove(Transform.rotateZ(this.options.angle), [75, 5, 0])
         });
 
         this.add(titleModifier).add(titleSurface);
