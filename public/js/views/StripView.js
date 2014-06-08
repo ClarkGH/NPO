@@ -67,7 +67,8 @@ define(function(require, exports, module) {
     }
 
     function _createTitle() {
-        var anchor = "<a href= '" + this.options.link + "'>" + this.options.title +"</a>";
+        // var anchor = "<a href= '" + this.options.link + "'>" + this.options.title +"</a>";
+        //anchor was to make each name into a link to their github
         console.log(this)
         var titleSurface = new Surface({
             size: [true, true],
@@ -78,7 +79,8 @@ define(function(require, exports, module) {
             }
 
         });
-        titleSurface.setContent(anchor);
+        //make the content of the stripview's surface our names
+        titleSurface.setContent(this.options.title);
 
         var titleModifier = new StateModifier({
             transform: Transform.thenMove(Transform.rotateZ(this.options.angle), [75, -5, 0])
