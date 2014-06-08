@@ -3,25 +3,28 @@ define(function(require, exports, module) {
     var Engine = require('famous/core/Engine');
     var Modifier = require('famous/core/Modifier');
     var Transform = require('famous/core/Transform');
-    var ImageSurface = require('famous/surfaces/ImageSurface');
+    var Surface = require('famous/core/Surface');
+
+    // load local files
+    var AppView = require('AppView');
+
+    // instantiate renderables
+    var appView = new AppView()
 
     // create the main context
     var mainContext = Engine.createContext();
 
-    // your app here
-    var logo = new ImageSurface({
-        size: [200, 200],
-        content: 'http://code.famo.us/assets/famous_logo.svg',
-        classes: ['double-sided']
-    });
 
-    var initialTime = Date.now();
-    var centerSpinModifier = new Modifier({
-        origin: [0.5, 0.5],
-        transform : function(){
-            return Transform.rotateY(.002 * (Date.now() - initialTime));
+    // create renderables
+    var surface = new Surface({
+        size: [ 100, 100 ],
+        content: 'hi mom',
+        properties: {
+            color: 'white',
+            backgroundColor: 'black'
         }
-    });
+    })
 
-    mainContext.add(centerSpinModifier).add(logo);
+    // add renderables
+    mainContext.add( surface )
 });
