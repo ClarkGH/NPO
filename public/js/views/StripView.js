@@ -67,16 +67,18 @@ define(function(require, exports, module) {
     }
 
     function _createTitle() {
+        var anchor = "<a href= '" + this.options.link + "'>" + this.options.title +"</a>";
+        console.log(this)
         var titleSurface = new Surface({
             size: [true, true],
-            content: this.options.title,
             properties: {
                 color: 'white',
                 fontSize: this.options.fontSize + 'px',
-                textTransform: 'uppercase',
-                pointerEvents : 'none'
+                textTransform: 'uppercase'
             }
+
         });
+        titleSurface.setContent(anchor);
 
         var titleModifier = new StateModifier({
             transform: Transform.thenMove(Transform.rotateZ(this.options.angle), [75, -5, 0])

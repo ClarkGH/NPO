@@ -1,8 +1,9 @@
 define(function(require, exports, module) {
     module.exports = [
-        {title: 'search', iconUrl: 'img/strip-icons/famous.png'},
-        {title: 'starred', iconUrl: 'img/strip-icons/starred.png'},
-        {title: 'friends', iconUrl: 'img/strip-icons/friends.png'},
-        {title: 'settings', iconUrl: 'img/strip-icons/settings.png'}
+        {title: 'Salar', iconUrl: 'img/strip-icons/friends.png', link: "http://github.com/salarkhan"},
+        {title: 'Greg', iconUrl: 'img/strip-icons/starred.png', link: "http://github.com/ggw215"},
+        {title: 'Kanji', iconUrl: 'img/strip-icons/friends.png', link: "http://github.com/kanjim83"},
+        {title: 'Clark', iconUrl: 'img/strip-icons/friends.png', link: "http://github.com/clarkgh"},
+        {title: 'Andrew', iconUrl: 'img/strip-icons/friends.png', link: "http://github.com/akoinesjr"}
     ];
 });

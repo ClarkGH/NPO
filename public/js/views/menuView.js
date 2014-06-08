@@ -51,7 +51,8 @@ define(function(require, exports, module) {
         for (var i = 0; i < this.options.stripData.length; i++) {
             var stripView = new StripView({
                 iconUrl: this.options.stripData[i].iconUrl,
-                title: this.options.stripData[i].title
+                title: this.options.stripData[i].title,
+                link: this.options.stripData[i].link
             });
 
             var stripModifier = new StateModifier({
