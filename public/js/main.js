@@ -6,7 +6,7 @@ define(function(require, exports, module) {
     var Surface = require('famous/core/Surface');
 
     // load local files
-    var AppView = require('AppView');
+    var AppView = require('views/AppView');
 
     // instantiate renderables
     var appView = new AppView()
@@ -14,17 +14,6 @@ define(function(require, exports, module) {
     // create the main context
     var mainContext = Engine.createContext();
 
-
-    // create renderables
-    var surface = new Surface({
-        size: [ 100, 100 ],
-        content: 'hi mom',
-        properties: {
-            color: 'white',
-            backgroundColor: 'black'
-        }
-    })
-
     // add renderables
-    mainContext.add( surface )
+    mainContext.add( appView )
 });
