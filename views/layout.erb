@@ -22,10 +22,12 @@
         <!-- app code -->
         <link rel="stylesheet" type="text/css" href="css/app.css" />
         <script type="text/javascript">
-            require.config({baseUrl: 'src/'});
+            require.config({baseUrl: '/js'});
             require(['main']);
         </script>
     </head>
-    <body></body>
+    <body>
+      <%= yield %>
+    </body>
 </html>
 
